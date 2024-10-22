@@ -1,0 +1,13 @@
+{
+    "SW": null,
+    "Bus": {
+        "input_tokens": 4423,
+        "output_tokens": 987,
+        "total_tokens": 5410
+    },
+    "Car": {
+        "input_tokens": 15532,
+        "output_tokens": 4231,
+        "total_tokens": 19763
+    }
+}

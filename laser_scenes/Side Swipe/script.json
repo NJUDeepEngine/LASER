@@ -1,0 +1,24 @@
+{
+    "moving_truck": {
+        "type": "dummy",
+        "model": "truck",
+        "init_state": [1, 32, 5]
+    },
+    "car": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [2, 48, 10],
+        "steps": [
+            {
+                "action": "close the distance to the vehicle",
+                "termination_condition": "your longitudinal position to the vehicle is approximately +/- 2 meter",
+                "reason": ""
+            },
+            {
+                "action": "execute the side-swipe maneuver by changing into the lane of the vehicle",
+                "termination_condition": "end of scenario",
+                "reason": ""
+            }
+        ]
+    }
+}

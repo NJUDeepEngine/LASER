@@ -1,0 +1,1 @@
+14.296607695519924, Actor(id=4240, type=vehicle.tesla.model3), Actor(id=4238, type=vehicle.tesla.model3)

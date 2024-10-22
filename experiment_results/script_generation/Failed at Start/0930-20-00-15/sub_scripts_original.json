@@ -1,0 +1,58 @@
+{
+    "VUT": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [
+            2,
+            65,
+            0
+        ]
+    },
+    "car": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            2,
+            65,
+            0
+        ],
+        "steps": [
+            {
+                "action": "accelerate to a speed not exceeding 5 m/s",
+                "termination_condition": "reach a speed of 5 m/s",
+                "reason": "to start moving from a parked position"
+            },
+            {
+                "action": "change from lane 2 to lane 1",
+                "termination_condition": "completely in lane 1",
+                "reason": "to merge into the traffic flow"
+            },
+            {
+                "action": "move forward at a speed not exceeding 5 m/s",
+                "termination_condition": "collision with the bus",
+                "reason": "continue driving until the collision occurs"
+            }
+        ]
+    },
+    "bus": {
+        "type": "agent",
+        "model": "bus",
+        "init_state": [
+            1,
+            25,
+            5
+        ],
+        "steps": [
+            {
+                "action": "change from lane 1 to lane 2",
+                "termination_condition": "completely in lane 2",
+                "reason": "to park at the bus station"
+            },
+            {
+                "action": "move forward at a speed not exceeding 5 m/s",
+                "termination_condition": "collision with the car",
+                "reason": "continue driving until the collision occurs"
+            }
+        ]
+    }
+}

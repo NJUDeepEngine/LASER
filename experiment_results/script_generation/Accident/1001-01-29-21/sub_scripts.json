@@ -1,0 +1,82 @@
+{
+    "car1": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [
+            1,
+            11,
+            1
+        ]
+    },
+    "car2": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [
+            1,
+            5,
+            0
+        ]
+    },
+    "car3": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            1,
+            40,
+            10
+        ],
+        "steps": [
+            {
+                "action": "slow down to 5 m/s",
+                "termination_condition": "Distance to 'car1' is less than 20 meters",
+                "reason": "Avoid collision with the stopped car."
+            },
+            {
+                "action": "change from lane 1 to lane 2",
+                "termination_condition": "Successfully in lane 2",
+                "reason": "Move to an unobstructed lane."
+            },
+            {
+                "action": "accelerate to 10 m/s",
+                "termination_condition": "Speed is 10 m/s",
+                "reason": "Resume normal speed after avoiding obstacle."
+            },
+            {
+                "action": "move forward with speed of 10 m/s",
+                "termination_condition": "end of scenario",
+                "reason": "Continue driving in unobstructed lane."
+            }
+        ]
+    },
+    "car4": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            1,
+            60,
+            10
+        ],
+        "steps": [
+            {
+                "action": "slow down to 5 m/s",
+                "termination_condition": "Distance to 'car2' is less than 20 meters",
+                "reason": "Avoid collision with the stopped car."
+            },
+            {
+                "action": "change from lane 1 to lane 2",
+                "termination_condition": "Successfully in lane 2",
+                "reason": "Move to an unobstructed lane."
+            },
+            {
+                "action": "accelerate to 10 m/s",
+                "termination_condition": "Speed is 10 m/s",
+                "reason": "Resume normal speed after avoiding obstacle."
+            },
+            {
+                "action": "move forward with speed of 10 m/s",
+                "termination_condition": "end of scenario",
+                "reason": "Continue driving in unobstructed lane."
+            }
+        ]
+    }
+}

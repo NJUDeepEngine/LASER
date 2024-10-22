@@ -1,0 +1,1 @@
+4.631034649442881, Actor(id=161, type=vehicle.ford.ambulance), Actor(id=163, type=vehicle.tesla.model3)

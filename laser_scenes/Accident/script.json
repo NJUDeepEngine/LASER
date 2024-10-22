@@ -1,0 +1,66 @@
+{
+    "AccidentCar1": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [2, 21, 1]
+    },
+    "AccidentCar2": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [2, 15, 0]
+    },
+    "Vehicle_1": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [2, 60, 10],
+        "steps": [
+            {
+                "action": "move forward with speed of 10 m/s",
+                "termination_condition": "The distance to AccidentCar1 is less than 30 m.",
+                "reason": "Move forward until discovering the accident."
+            },
+            {
+                "action": "slow down",
+                "termination_condition": "speed is reduced to 5 m/s",
+                "reason": "Avoid collision with the slowed-down Vehicle_1."
+            },
+            {
+                "action": "change from lane 2 to lane 1",
+                "termination_condition": "The car is not in lane 2.",
+                "reason": "Bypass the stopped AccidentCar1."
+            },
+            {
+                "action": "move forward with speed of 10 m/s",
+                "termination_condition": "End of the scene",
+                "reason": "Continue driving safely past the AccidentCar1."
+            }
+        ]
+    },
+    "Vehicle_2": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [2, 80, 10],
+        "steps": [
+            {
+                "action": "move forward with speed of 10 m/s",
+                "termination_condition": "The distance to AccidentCar1 is less than 30 m.",
+                "reason": "Move forward until discovering the accident.."
+            },
+            {
+                "action": "slow down",
+                "termination_condition": "speed is reduced to 5 m/s",
+                "reason": "Avoid collision with the slowed-down Vehicle_1."
+            },
+            {
+                "action": "change from lane 2 to lane 3",
+                "termination_condition": "The car is not in lane 2.",
+                "reason": "Bypass the stopped AccidentCar1."
+            },
+            {
+                "action": "move forward with speed of 10 m/s",
+                "termination_condition": "End of the scene",
+                "reason": "Continue driving safely past the AccidentCar1."
+            }
+        ]
+    }
+}

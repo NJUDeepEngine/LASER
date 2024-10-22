@@ -1,0 +1,75 @@
+### Input Interpretation:
+
+**Stage 1**: The ambulance is driving in a straight line at high speed in the same lane as two other vehicles.
+
+- **Reasoning**: The initial setup involves an ambulance and two vehicles in the same lane on a 4-lane highway.
+
+**Stage 2**: The ambulance approaches the vehicle in front, reducing the distance between them to less than 20 meters.
+
+- **Reasoning**: This stage sets the condition that triggers the vehicles in front to make way for the ambulance.
+
+**Stage 3**: The vehicles in front move to the sides to allow the ambulance to pass.
+
+- **Reasoning**: When the ambulance is within 20 meters, the vehicles in front react by changing lanes.
+
+**Stage 4**: The ambulance continues driving straight.
+
+- **Reasoning**: After the vehicles move to the sides, the ambulance can continue its journey unobstructed.
+
+### Script Generation:
+
+```json
+{
+    "VUT": {
+        "type": "dummy",
+        "model": "ambulance",
+        "init_state": [2, 100, 15]
+    },
+    "vehicle_1": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [2, 50, 10],
+        "steps": [
+            {
+                "action": "Move straight ahead at a speed not exceeding 10 m/s.",
+                "termination_condition": "The distance between the car and the ambulance is less than 20 meters.",
+                "reason": "Ensure the car is in front of the ambulance until it needs to make way."
+            },
+            {
+                "action": "Change from lane 2 to lane 1.",
+                "termination_condition": "The car has fully moved to lane 1.",
+                "reason": "Make way for the ambulance by moving to the left lane."
+            },
+            {
+                "action": "Move straight ahead at a speed not exceeding 10 m/s.",
+                "termination_condition": "End of scene.",
+                "reason": "Continue driving after making way for the ambulance."
+            }
+        ]
+    },
+    "vehicle_2": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [2, 70, 10],
+        "steps": [
+            {
+                "action": "Move straight ahead at a speed not exceeding 10 m/s.",
+                "termination_condition": "The distance between the car and the ambulance is less than 20 meters.",
+                "reason": "Ensure the car is in front of the ambulance until it needs to make way."
+            },
+            {
+                "action": "Change from lane 2 to lane 3.",
+                "termination_condition": "The car has fully moved to lane 3.",
+                "reason": "Make way for the ambulance by moving to the right lane."
+            },
+            {
+                "action": "Move straight ahead at a speed not exceeding 10 m/s.",
+                "termination_condition": "End of scene.",
+                "reason": "Continue driving after making way for the ambulance."
+            }
+        ]
+    }
+}
+```
+
+In this scenario, the ambulance (VUT) is initially driving at high speed in lane 2. Two vehicles, `vehicle_1` and `vehicle_2`, are also in lane 2 but positioned ahead of the ambulance. When the ambulance approaches within 20 meters, `vehicle_1` moves to the left lane (lane 1), and `vehicle_2` moves to the right lane (lane 3), clearing the way for the ambulance to continue driving straight.

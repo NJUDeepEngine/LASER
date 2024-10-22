@@ -1,0 +1,3 @@
+Scene description: 
+There are three cars in one lane. The vehicle in front slowed down, the second vehicle couldn't avoid it and its speed dropped to zero due to the collision, and the third vehicle attempted to change lanes to avoid the collision but failed, resulting in a crash.
+Road environment description: 4 lane road with a cross walk near the intersection

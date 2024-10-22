@@ -1,0 +1,90 @@
+### Input Interpretation
+
+1. **Stage 1: Car on the left attempts to overtake the ego vehicle.**
+   - Objective: The car on the left (Actor 1) accelerates and changes lanes to overtake the ego vehicle (VUT).
+   - Reasoning: Actor 1 wants to move ahead of the VUT, which occupies the right lane (lane 2).
+
+2. **Stage 2: Actor 1 completes the overtaking maneuver, limiting space in front of the VUT.**
+   - Objective: Actor 1 finishes lane change and continues forward, reducing the longitudinal distance to the VUT.
+   - Reasoning: Actor 1 finishes overtaking and settles in lane 2 in front of the VUT.
+
+3. **Stage 3: The VUT decelerates due to reduced space in front.**
+   - Objective: The VUT slows down to avoid collision with Actor 1.
+   - Reasoning: The VUT needs to maintain a safe following distance.
+
+4. **Stage 4: Car behind the VUT speeds up, pressuring the VUT to accelerate.**
+   - Objective: The car behind (Actor 2) speeds up and approaches the VUT, creating pressure on the VUT to increase speed.
+   - Reasoning: Actor 2 aims to move faster along the highway, potentially preparing to overtake.
+
+5. **Stage 5: The VUT accelerates to maintain speed due to pressure from behind.**
+   - Objective: The VUT increases speed to avoid being too slow relative to Actor 2.
+   - Reasoning: To maintain a safe distance both in front and behind, balancing between Actor 1 and Actor 2.
+
+### Script Generation
+
+```json
+{
+    "VUT": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [2, 60, 10]
+    },
+    "Actor1": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [1, 65, 10],
+        "steps": [
+            {
+                "action": "Accelerate straight ahead at a speed not exceeding 15 m/s.",
+                "termination_condition": "Longitudinal position is 5 meters ahead of the VUT.",
+                "reason": "To prepare for the lane change and overtaking maneuver."
+            },
+            {
+                "action": "Change from lane 1 to lane 2.",
+                "termination_condition": "Lane change completed and stable in lane 2.",
+                "reason": "To overtake the VUT."
+            },
+            {
+                "action": "Move straight ahead at a speed of 15 m/s.",
+                "termination_condition": "End of the scene.",
+                "reason": "Continue moving forward after overtaking."
+            }
+        ]
+    },
+    "Actor2": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [2, 50, 8],
+        "steps": [
+            {
+                "action": "Accelerate straight ahead at a speed not exceeding 15 m/s.",
+                "termination_condition": "Longitudinal position is within 5 meters behind the VUT.",
+                "reason": "To pressure the VUT to increase speed."
+            },
+            {
+                "action": "Move straight ahead at a speed of 15 m/s.",
+                "termination_condition": "End of the scene.",
+                "reason": "Continue moving forward."
+            }
+        ]
+    }
+}
+```
+
+### Explanation:
+
+1. **Initial State:**
+   - **VUT:** In lane 2, 60 meters from the finish line, moving at 10 m/s.
+   - **Actor 1:** In lane 1, 65 meters from the finish line, moving at 10 m/s.
+   - **Actor 2:** In lane 2, 50 meters from the finish line, moving at 8 m/s.
+
+2. **Actor 1 (Car on the left):**
+   - **Step 1:** Accelerates straight ahead until it is 5 meters ahead of the VUT.
+   - **Step 2:** Changes from lane 1 to lane 2.
+   - **Step 3:** Moves straight ahead until the end of the scene.
+
+3. **Actor 2 (Car behind):**
+   - **Step 1:** Accelerates straight ahead until it is within 5 meters behind the VUT.
+   - **Step 2:** Moves straight ahead until the end of the scene.
+
+This setup ensures that Actor 1 successfully overtakes the VUT, leading the VUT to decelerate. Actor 2 then speeds up, pressuring the VUT to accelerate, maintaining a coherent and logical sequence of events.

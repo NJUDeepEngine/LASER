@@ -1,0 +1,13 @@
+{
+    "SW": null,
+    "Vehicle_1": {
+        "input_tokens": 9601,
+        "output_tokens": 2089,
+        "total_tokens": 11690
+    },
+    "Vehicle_2": {
+        "input_tokens": 11592,
+        "output_tokens": 2454,
+        "total_tokens": 14046
+    }
+}

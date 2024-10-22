@@ -1,0 +1,1 @@
+6.966696602292359, Actor(id=80, type=walker.pedestrian.0035), Actor(id=70, type=vehicle.tesla.model3)

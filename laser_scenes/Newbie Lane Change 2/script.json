@@ -1,0 +1,48 @@
+{
+    "VUT": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [
+            2,
+            60,
+            10
+        ]
+    },
+    "Truck": {
+        "type": "agent",
+        "model": "truck",
+        "init_state": [
+            1,
+            60,
+            10
+        ],
+        "steps": [
+            {
+                "action": "move straight ahead at a speed not exceeding 10 m/s",
+                "termination_condition": "end of the scene",
+                "reason": "Maintain constant speed and position relative to the VUT"
+            }
+        ]
+    },
+    "Car": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            3,
+            53,
+            10
+        ],
+        "steps": [
+            {
+                "action": "change lanes from lane 3 to lane 2 at a speed not exceeding 10 m/s",
+                "termination_condition": "car is fully in lane 2",
+                "reason": "Initiate lane change to move into the lane where the VUT is traveling"
+            },
+            {
+                "action": "move straight ahead at a speed not exceeding 10 m/s",
+                "termination_condition": "longitudinal distance to the VUT is less than 5 meters",
+                "reason": "Continue moving forward without acceleration, causing a collision with the VUT"
+            }
+        ]
+    }
+}

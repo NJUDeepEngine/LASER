@@ -1,0 +1,88 @@
+{
+    "AccidentCar1": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [2, 31, 1]
+    },
+    "AccidentCar2": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [2, 25, 0]
+    },
+    "Car_1": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [1, 36, 8]
+    },
+    "Car_2": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [2, 40, 0],
+        "steps": [
+            {
+                "action": "Stay in place.",
+                "termination_condition": "The longitudinal distance to Car_1 is more than 5 m.",
+                "reason": "Stay in place."
+            },
+            {
+                "action": "Accelerate and change lanes from lane 2 to lane 1.",
+                "termination_condition": "You are not in lane 2.",
+                "reason": "Change lanes to move forward."
+            },
+            {
+                "action": "Move straight ahead at a speed not exceeding 8 m/s.",
+                "termination_condition": "Reach the end of the scene.",
+                "reason": "Continue traveling safely after avoiding the collision."
+            }
+        ]
+    },
+    "Car_3": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [1, 42, 0],
+        "steps": [
+            {
+                "action": "Stay in place.",
+                "termination_condition": "The longitudinal distance to Car_2 is more than 10 m.",
+                "reason": "Stay in place."
+            },
+            {
+                "action": "Accelerate to 7 m/s.",
+                "termination_condition": "Your speed is 7 m/s.",
+                "reason": "Move forward."
+            },
+            {
+                "action": "Move straight ahead at a speed not exceeding 7 m/s.",
+                "termination_condition": "Reach the end of the scene.",
+                "reason": "Continue traveling safely after avoiding the collision."
+            }
+        ]
+    },
+    "Car_4": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [2, 53, 3],
+        "steps": [
+            {
+                "action": "Move forward at a speed not exceeding 3 m/s.",
+                "termination_condition": "Your distance to AccidentCar1 is less than 15 m.",
+                "reason": "Move forward as Car_2 leaving."
+            },
+            {
+                "action": "Slow down to 0 m/s.",
+                "termination_condition": "The longitudinal distance to Car_3 is more than 5 m.",
+                "reason": "Slow down to avoid the collision"
+            },
+            {
+                "action": "Accelerate and change lanes from lane 2 to lane 1.",
+                "termination_condition": "You are not in lane 2.",
+                "reason": "Change lanes to move forward."
+            },
+            {
+                "action": "Move straight ahead at a speed not exceeding 5 m/s.",
+                "termination_condition": "Reach the end of the scene.",
+                "reason": "Continue traveling safely after avoiding the collision."
+            }
+        ]
+    }
+}

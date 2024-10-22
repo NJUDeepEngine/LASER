@@ -1,0 +1,3 @@
+Scene description: 
+Two cars collided in the right lane of a two-lane intersection, and the following car merged into the left lane to avoid the collision.
+road environment description: 2 lane road

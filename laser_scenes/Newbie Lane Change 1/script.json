@@ -1,0 +1,41 @@
+{
+    "VUT": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [1, 38, 10]
+    },
+    "VehicleB": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [2, 20, 6],
+        "steps": [
+            {
+                "action": "Decelerate to 5 m/s",
+                "termination_condition": "Reach a speed of 5 m/s",
+                "reason": "Vehicle B is decelerating to avoid obstacles or due to traffic conditions."
+            },
+            {
+                "action": "Move straight at 5 m/s",
+                "termination_condition": "End of the scene",
+                "reason": "Continue moving at a reduced speed."
+            }
+        ]
+    },
+    "VehicleC": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [2, 30, 10],
+        "steps": [
+            {
+                "action": "Change lanes from lane 2 to lane 1 and slow down",
+                "termination_condition": "Vehicle C is not in lane 2",
+                "reason": "Vehicle C is trying to bypass the slower Vehicle B."
+            },
+            {
+                "action": "Move straight at 5 m/s",
+                "termination_condition": "End of the scene",
+                "reason": "Continue moving at a reduced speed, unable to complete the lane change."
+            }
+        ]
+    }
+}

@@ -1,0 +1,58 @@
+{
+    "ambulance": {
+        "type": "dummy",
+        "model": "ambulance",
+        "init_state": [
+            1,
+            80,
+            15
+        ]
+    },
+    "vehicle1": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            1,
+            60,
+            10
+        ],
+        "steps": [
+            {
+                "action": "change from lane 1 to lane 2",
+                "termination_condition": "complete lane change",
+                "reason": "make way for the ambulance"
+            },
+            {
+                "action": "move forward with speed of 10 m/s",
+                "termination_condition": "end of scene",
+                "reason": "continue driving after making way"
+            }
+        ]
+    },
+    "vehicle2": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            1,
+            30,
+            10
+        ],
+        "steps": [
+            {
+                "action": "move forward with speed of 10 m/s",
+                "termination_condition": "Distance to ambulance is less than 20 m.",
+                "reason": "continue driving after making way"
+            },
+            {
+                "action": "change from lane 1 to lane 2",
+                "termination_condition": "complete lane change",
+                "reason": "make way for the ambulance"
+            },
+            {
+                "action": "move forward with speed of 10 m/s",
+                "termination_condition": "end of scene",
+                "reason": "continue driving after making way"
+            }
+        ]
+    }
+}

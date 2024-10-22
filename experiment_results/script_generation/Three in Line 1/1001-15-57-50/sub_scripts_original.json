@@ -1,0 +1,53 @@
+{
+    "VUT": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [
+            1,
+            100,
+            10
+        ]
+    },
+    "car1": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            1,
+            120,
+            10
+        ],
+        "steps": [
+            {
+                "action": "Decelerate to 5 m/s",
+                "termination_condition": "Reach a speed of 5 m/s",
+                "reason": "Car1 is slowing down."
+            },
+            {
+                "action": "Move forward with speed of 5 m/s",
+                "termination_condition": "End of the scene",
+                "reason": "Continue moving forward at a reduced speed."
+            }
+        ]
+    },
+    "car2": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            1,
+            110,
+            10
+        ],
+        "steps": [
+            {
+                "action": "Change from lane 1 to lane 2",
+                "termination_condition": "Complete lane change",
+                "reason": "Avoid collision with Car1 slowing down."
+            },
+            {
+                "action": "Move forward with speed of 10 m/s",
+                "termination_condition": "End of the scene",
+                "reason": "Continue moving forward in the new lane."
+            }
+        ]
+    }
+}

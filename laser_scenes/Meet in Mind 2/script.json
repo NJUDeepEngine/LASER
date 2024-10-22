@@ -1,0 +1,63 @@
+{
+    "VUT": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [
+            2,
+            40,
+            10
+        ]
+    },
+    "Car_left": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            1,
+            41,
+            12
+        ],
+        "steps": [
+            {
+                "action": "Accelerate until your longitudinal position is more than 3 meters ahead of the VUT",
+                "termination_condition": "Once the car is at least 3 meters ahead of the VUT",
+                "reason": "To safely overtake the VUT"
+            },
+            {
+                "action": "Change from lane 1 to lane 2",
+                "termination_condition": "Ensure the lane change is complete when positioned parallel to the middle car",
+                "reason": "To prepare for overtaking the middle car"
+            },
+            {
+                "action": "Move forward with speed of 15 m/s",
+                "termination_condition": "Continue until the end of the scene",
+                "reason": "To maintain highway speed after the maneuver"
+            }
+        ]
+    },
+    "Car_right": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            3,
+            40,
+            11
+        ],
+        "steps": [
+            {
+                "action": "Accelerate until your longitudinal position is more than 3 meters ahead of the VUT",
+                "termination_condition": "Once the car is at least 3 meters ahead of the VUT",
+                "reason": "To safely overtake the VUT"
+            },
+            {
+                "action": "Change from lane 3 to lane 2",
+                "termination_condition": "Ensure the lane change is complete when positioned parallel to the middle car",
+                "reason": "To prepare for overtaking the middle car"
+            },
+            {
+                "action": "Move forward with speed of 15 m/s",
+                "termination_condition": "Continue until the end of the scene",
+                "reason": "To maintain highway speed after the maneuver"
+            }
+        ]
+    }
+}

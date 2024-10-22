@@ -1,0 +1,58 @@
+{
+    "VUT": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [
+            2,
+            50,
+            10
+        ]
+    },
+    "Left Car": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            1,
+            55,
+            12
+        ],
+        "steps": [
+            {
+                "action": "Change from lane 1 to lane 2",
+                "termination_condition": "Left Car is fully in lane 2",
+                "reason": "To overtake the VUT"
+            },
+            {
+                "action": "Accelerate until the longitudinal position of the Left Car is more than 5 meters ahead of the VUT",
+                "termination_condition": "Left Car is more than 5 meters ahead of the VUT",
+                "reason": "Complete the overtaking maneuver"
+            },
+            {
+                "action": "Move forward with speed of 15 m/s",
+                "termination_condition": "End of the scene",
+                "reason": "Continue driving after overtaking"
+            }
+        ]
+    },
+    "Rear Car": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            2,
+            60,
+            12
+        ],
+        "steps": [
+            {
+                "action": "Move straight ahead at a speed not exceeding 15 m/s",
+                "termination_condition": "Rear Car is close to the VUT with a longitudinal distance of 5 meters",
+                "reason": "To pressure the VUT to accelerate"
+            },
+            {
+                "action": "Move forward with speed of 15 m/s",
+                "termination_condition": "End of the scene",
+                "reason": "Continue driving after pressuring the VUT"
+            }
+        ]
+    }
+}

@@ -1,0 +1,5 @@
+Steps: 
+{steps}
+Last step: {last_step}
+Observation:
+{observation}

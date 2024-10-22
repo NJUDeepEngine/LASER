@@ -1,0 +1,46 @@
+{
+    "car": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [2, 40, 0],
+        "steps": [
+            {
+                "action": "Move straight ahead at a speed not exceeding 5 m/s.",
+                "termination_condition": "The car reaches 113 meters.",
+                "reason": "The car starts moving from its parked position."
+            },
+            {
+                "action": "Change lanes from lane 2 to lane 1.",
+                "termination_condition": "The car has fully moved to lane 1.",
+                "reason": "The car changes lanes, setting up the collision course."
+            },
+            {
+                "action": "Move straight ahead at a speed not exceeding 5 m/s.",
+                "termination_condition": "The car collides with the bus.",
+                "reason": "The car continues moving until the collision occurs."
+            }
+        ]
+    },
+    "bus": {
+        "type": "agent",
+        "model": "bus",
+        "init_state": [1, 55, 10],
+        "steps": [
+            {
+                "action": "Move straight ahead at a speed not exceeding 5 m/s.",
+                "termination_condition": "The bus reaches 110 meters.",
+                "reason": "The bus travels towards the bus station."
+            },
+            {
+                "action": "Change lanes from lane 1 to lane 2.",
+                "termination_condition": "The bus has fully moved to lane 2.",
+                "reason": "The bus changes lanes to park at the bus station."
+            },
+            {
+                "action": "Move straight ahead at a speed not exceeding 5 m/s.",
+                "termination_condition": "The bus collides with the car.",
+                "reason": "The bus continues moving until the collision occurs."
+            }
+        ]
+    }
+}

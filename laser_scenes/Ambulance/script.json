@@ -1,0 +1,94 @@
+{
+    "VUT": {
+        "type": "dummy",
+        "model": "ambulance",
+        "init_state": [2, 65, 12]
+    },
+    "vehicle_1": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [2, 45, 6],
+        "steps": [
+            {
+                "action": "change from lane 2 to lane 3",
+                "termination_condition": "The car is not in lane 2.",
+                "reason": "To make way for the ambulance."
+            },
+            {
+                "action": "move forward with speed of 6 m/s",
+                "termination_condition": "Ambulance has passed and the car is now behind it.",
+                "reason": "To maintain road safety."
+            }
+        ]
+    },
+    "vehicle_2": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [2, 20, 6],
+        "steps": [
+            {
+                "action": "move forward with speed of 6 m/s",
+                "termination_condition": "The distance to VUT is less than 20 m.",
+                "reason": "To make way for the ambulance."
+            },
+            {
+                "action": "change from lane 2 to lane 1",
+                "termination_condition": "The car is not in lane 2.",
+                "reason": "To make way for the ambulance."
+            },
+            {
+                "action": "move forward with speed of 6 m/s",
+                "termination_condition": "Ambulance has passed and the car is now behind it.",
+                "reason": "To maintain road safety."
+            }
+        ]
+    },
+    "vehicle_3": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [2, 5, 6],
+        "steps": [
+            {
+                "action": "move forward with speed of 6 m/s",
+                "termination_condition": "The distance to VUT is less than 20 m.",
+                "reason": "To make way for the ambulance."
+            },
+            {
+                "action": "change from lane 2 to lane 3",
+                "termination_condition": "The car is not in lane 2.",
+                "reason": "To make way for the ambulance."
+            },
+            {
+                "action": "move forward with speed of 6 m/s",
+                "termination_condition": "Ambulance has passed and the truck is now behind it.",
+                "reason": "To maintain road safety."
+            }
+        ]
+    },
+    "vehicle_4": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [1, 35, 6]
+    },
+    "vehicle_5": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [3, 15, 6]
+    },
+    "vehicle_6": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [3, 60, 6]
+    },
+    "vehicle_7": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [3, 32, 6]
+    }
+    ,
+    "vehicle_8": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [1, 8, 6]
+    }
+}

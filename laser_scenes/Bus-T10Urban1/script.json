@@ -1,0 +1,39 @@
+{
+    "bus": {
+        "type": "agent",
+        "model": "bus",
+        "init_state": [1, 45, 8],
+        "steps": [
+            {
+                "action": "Change lanes from lane 1 to lane 2",
+                "termination_condition": "Successfully move to lane 2",
+                "reason": "The bus needs to stop at the side bus stop."
+            },
+            {
+                "action": "Move forward.",
+                "termination_condition": "Your longitudinal distance is greater than 126 m.",
+                "reason": "The bus needs to pick up or drop off passengers."
+            },
+            {
+                "action": "Stop at the bus stop",
+                "termination_condition": "Your speed slow down to 0 m/s.",
+                "reason": "The bus needs to pick up or drop off passengers."
+            },
+            {
+                "action": "Accelarate and change lanes from lane 2 to lane 1",
+                "termination_condition": "Successfully move to lane 1",
+                "reason": "The bus needs to return to the middle lane to continue its route."
+            },
+            {
+                "action": "accelarate to 10 m/s.",
+                "termination_condition": "Your speed is 10 m/s.",
+                "reason": "The bus should accelarate to 10 m/s."
+            },
+            {
+                "action": "Move forward with speed of 10 m/s",
+                "termination_condition": "End of the scene",
+                "reason": "The bus continues its route."
+            }
+        ]
+    }
+}

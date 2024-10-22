@@ -1,0 +1,51 @@
+{
+    "VUT": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [2, 70, 0],  // parked
+    },
+    "Bus": {
+        "type": "agent",
+        "model": "bus",
+        "init_state": [1, 30, 10],
+        "steps": [
+            {
+                "action": "Move straight ahead at a speed not exceeding 10 m/s.",
+                "termination_condition": "Reach a longitudinal position of 10 meters from the finish line.",
+                "reason": "The bus is preparing to change lanes to park."
+            },
+            {
+                "action": "Change from lane 1 to lane 2.",
+                "termination_condition": "Complete the lane change to lane 2.",
+                "reason": "The bus needs to park in lane 2."
+            },
+            {
+                "action": "Continue moving straight until the end of the scene.",
+                "termination_condition": "Collision with the car or completion of the lane change.",
+                "reason": "The bus completes its parking maneuver."
+            }
+        ]
+    },
+    "Car": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [2, 70, 0],  // parked
+        "steps": [
+            {
+                "action": "Start moving straight ahead at a speed not exceeding 5 m/s.",
+                "termination_condition": "Reach a speed of 5 m/s.",
+                "reason": "The car starts moving out of the parked state."
+            },
+            {
+                "action": "Change from lane 2 to lane 1.",
+                "termination_condition": "Complete the lane change to lane 1.",
+                "reason": "The car attempts to merge into lane 1."
+            },
+            {
+                "action": "Continue moving straight until the end of the scene.",
+                "termination_condition": "Collision with the bus or completion of the lane change.",
+                "reason": "The car continues its maneuver."
+            }
+        ]
+    }
+}

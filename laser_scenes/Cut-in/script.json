@@ -1,0 +1,34 @@
+{
+	"VUT": {
+		"type": "VUT", 
+		"model": "car", 
+		"init_state": [1, 40, 5]
+	}, 
+	"overtaking_car": {
+		"type": "agent", 
+		"model": "car", 
+		"init_state": [2, 40, 5], 
+		"steps": [
+			{
+				"action": "accelerate to overtake", 
+				"termination_condition": "Your longitudinal position is ahead of VUT.", 
+				"reason": "The car needs to match and then exceed the speed of the VUT to overtake."
+			}, 
+			{
+				"action": "merge into leftmost lane ahead of the VUT", 
+                "termination_condition": "when the car is in leftmost lane ahead of the VUT", 
+                "reason": "The car needs to complete the overtaking maneuver by positioning itself in front of the VUT."
+			}, 
+			{
+				"action": "slow down", 
+                "termination_condition": "when the car's speed is reduced to 2 m/s", 
+                "reason": "The car slows down, affecting the VUT's driving behavior."
+			},
+            {
+                "action": "Maintain 5 m/s speed in lane 1", 
+                "termination_condition": "Hold for the next 10 seconds", 
+                "reason": ""
+            }
+		]
+	}
+}

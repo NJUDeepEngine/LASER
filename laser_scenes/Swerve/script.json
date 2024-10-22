@@ -1,0 +1,46 @@
+{
+    "VUT": {
+        "type": "VUT",
+        "model": "car",
+        "init_state": [3, 67, 8]
+    },
+    "front_car": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [2, 45, 6],
+        "steps": [
+            {
+                "action": "decelerate",
+                "termination_condition": "Reduce speed to 0 m/s",
+                "reason": "Reduce speed due to mechanical failure."
+            },
+            {
+                "action": "Maintain 0 m/s speed in lane 2", 
+                "termination_condition": "Hold for the next 10 seconds", 
+                "reason": ""
+            }
+        ]
+    },
+    "rear_car": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [2, 55, 6],
+        "steps": [
+            {
+                "action": "Maintain 6 m/s speed in lane 2", 
+                "termination_condition": "Front_car decelerates to less than 5 m/s.", 
+                "reason": "Maintain safe following distance while traveling at a steady speed."
+            },
+            {
+                "action": "change from lane 2 to lane 3",
+                "termination_condition": "The car is not in lane 2.",
+                "reason": "Avoid collision with suddenly decelerating front car."
+            },
+            {
+                "action": "Maintain 6 m/s speed in lane 3", 
+                "termination_condition": "Hold for the next 10 seconds", 
+                "reason": ""
+            }
+        ]
+    }
+}

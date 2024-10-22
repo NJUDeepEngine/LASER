@@ -1,0 +1,42 @@
+{
+    "VUT": {
+        "type": "VUT",
+        "model": "car",
+        "init_state": [
+            1,
+            60,
+            10
+        ]
+    },
+    "Car1": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            2,
+            60,
+            12
+        ],
+        "steps": [
+            {
+                "action": "Accelerate to a speed not exceeding 15 m/s.",
+                "termination_condition": "Longitudinal position more than 2 meters ahead of the VUT.",
+                "reason": "Pass the VUT."
+            },
+            {
+                "action": "Change from lane 2 to lane 1.",
+                "termination_condition": "Complete lane change to lane 1 in front of the VUT.",
+                "reason": "Return to the original lane after overtaking."
+            },
+            {
+                "action": "Slow down to a speed not exceeding 5 m/s.",
+                "termination_condition": "Speed reduces to 5 m/s.",
+                "reason": "Reduce speed after overtaking."
+            },
+            {
+                "action": "Move forward with speed of 5 m/s.",
+                "termination_condition": "End of the scene.",
+                "reason": "Continue moving forward."
+            }
+        ]
+    }
+}

@@ -1,0 +1,87 @@
+### Input Interpretation:
+
+**Stage 1:** 
+An ambulance is driving on the highway at high speed. 
+*Reasoning:* This sets the initial condition for the ambulance and establishes its presence on the highway.
+
+**Stage 2:** 
+There are two vehicles in the same lane ahead of the ambulance.
+*Reasoning:* This introduces the vehicles that need to react to the approaching ambulance.
+
+**Stage 3:** 
+When the distance between the ambulance and the vehicle in front is less than 20 meters, the vehicle in front moves to either side to make way.
+*Reasoning:* This describes the condition under which the vehicles in front will change lanes to allow the ambulance to pass.
+
+**Stage 4:** 
+After the vehicles move aside, the ambulance continues driving in a straight line.
+*Reasoning:* This completes the sequence of events by describing the final state of the ambulance after the other vehicles have moved.
+
+### Script Generation:
+
+```json
+{
+    "VUT": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [1, 1000, 10]
+    },
+    "ambulance": {
+        "type": "agent",
+        "model": "ambulance",
+        "init_state": [1, 950, 15],
+        "steps": [
+            {
+                "action": "move forward with speed of 15 m/s",
+                "termination_condition": "distance to vehicle1 < 20 meters",
+                "reason": "approaching the vehicle in front"
+            },
+            {
+                "action": "move forward with speed of 15 m/s",
+                "termination_condition": "end of scene",
+                "reason": "continue driving after vehicles move aside"
+            }
+        ]
+    },
+    "vehicle1": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [1, 900, 10],
+        "steps": [
+            {
+                "action": "change from lane 1 to lane 2",
+                "termination_condition": "complete lane change",
+                "reason": "make way for the ambulance"
+            },
+            {
+                "action": "move forward with speed of 10 m/s",
+                "termination_condition": "end of scene",
+                "reason": "continue driving after making way"
+            }
+        ]
+    },
+    "vehicle2": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [1, 850, 10],
+        "steps": [
+            {
+                "action": "change from lane 1 to lane 2",
+                "termination_condition": "complete lane change",
+                "reason": "make way for the ambulance"
+            },
+            {
+                "action": "move forward with speed of 10 m/s",
+                "termination_condition": "end of scene",
+                "reason": "continue driving after making way"
+            }
+        ]
+    }
+}
+```
+
+**Explanation:**
+
+- **VUT** is the vehicle under test, starting in lane 1, 1000 meters from the finish line, moving at 10 m/s.
+- **Ambulance** starts in lane 1, 950 meters from the finish line, moving at 15 m/s, and aims to keep moving straight at high speed, triggering the vehicles in front to move aside when the distance is less than 20 meters.
+- **Vehicle1** starts in lane 1, 900 meters from the finish line, moving at 10 m/s, and will change lanes to make way for the ambulance when it comes within 20 meters.
+- **Vehicle2** starts in lane 1, 850 meters from the finish line, moving at 10 m/s, and will also change lanes to make way for the ambulance when it comes within 20 meters.

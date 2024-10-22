@@ -1,0 +1,34 @@
+{
+    "VUT": {
+        "type": "VUT",
+        "model": "car",
+        "init_state": [1, 32, 10]
+    },
+    "truck": {
+        "type": "dummy",
+        "model": "truck",
+        "init_state": [2, 11, 0]
+    },
+    "pedestrian": {
+        "type": "agent",
+        "model": "pedestrian",
+        "init_state": [2, 8, 0],
+        "steps": [
+            {
+                "action": "Start moving forward at a speed not exceeding 1.5 m/s",
+                "termination_condition": "Pedestrian starts crossing the road",
+                "reason": "Pedestrian begins to cross the road at the crosswalk"
+            },
+            {
+                "action": "Continue moving forward at a speed not exceeding 1.5 m/s",
+                "termination_condition": "Pedestrian reaches the middle of the road",
+                "reason": "Pedestrian continues crossing the road"
+            },
+            {
+                "action": "Continue moving forward at a speed not exceeding 1.5 m/s",
+                "termination_condition": "Pedestrian gets hit by the VUT",
+                "reason": "Pedestrian continues crossing and gets hit by the VUT"
+            }
+        ]
+    }
+}

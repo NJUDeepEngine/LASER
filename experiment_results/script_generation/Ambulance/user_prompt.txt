@@ -1,0 +1,4 @@
+Scenario Description:
+On the highway, an ambulance is driving in a straight line at high speed. There are two vehicles in the same lane. When the distance between the ambulance and the vehicle in front is less than 20 meters, the vehicle in front moves to both sides to make way.
+Road environment description:
+4 lane road.

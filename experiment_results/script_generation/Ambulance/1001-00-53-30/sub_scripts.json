@@ -1,0 +1,63 @@
+{
+    "VUT": {
+        "type": "dummy",
+        "model": "ambulance",
+        "init_state": [
+            2,
+            80,
+            15
+        ]
+    },
+    "vehicle1": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            2,
+            50,
+            10
+        ],
+        "steps": [
+            {
+                "action": "Move straight ahead at a speed not exceeding 10 m/s",
+                "termination_condition": "The distance between the ambulance and vehicle1 is less than 20 meters",
+                "reason": "Vehicle1 is initially moving straight in lane 2"
+            },
+            {
+                "action": "Change from lane 2 to lane 1",
+                "termination_condition": "Vehicle1 has moved completely into lane 1",
+                "reason": "Vehicle1 is making way for the ambulance"
+            },
+            {
+                "action": "Move straight ahead at a speed not exceeding 10 m/s",
+                "termination_condition": "End of the scene",
+                "reason": "Vehicle1 continues to drive straight after making way"
+            }
+        ]
+    },
+    "vehicle2": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            2,
+            20,
+            8
+        ],
+        "steps": [
+            {
+                "action": "Move straight ahead at a speed not exceeding 8 m/s",
+                "termination_condition": "The distance between the ambulance and vehicle2 is less than 20 meters",
+                "reason": "Vehicle2 is initially moving straight in lane 2"
+            },
+            {
+                "action": "Change from lane 2 to lane 3",
+                "termination_condition": "Vehicle2 has moved completely into lane 3",
+                "reason": "Vehicle2 is making way for the ambulance"
+            },
+            {
+                "action": "Move straight ahead at a speed not exceeding 8 m/s",
+                "termination_condition": "End of the scene",
+                "reason": "Vehicle2 continues to drive straight after making way"
+            }
+        ]
+    }
+}

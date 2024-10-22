@@ -1,0 +1,13 @@
+{
+    "SW": null,
+    "front_car": {
+        "input_tokens": 6428,
+        "output_tokens": 1268,
+        "total_tokens": 7696
+    },
+    "second_car": {
+        "input_tokens": 3156,
+        "output_tokens": 637,
+        "total_tokens": 3793
+    }
+}

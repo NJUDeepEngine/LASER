@@ -1,0 +1,46 @@
+{
+    "car": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [1, 70, 0],
+        "steps": [
+            {
+                "action": "Move straight ahead at a speed not exceeding 5 m/s.",
+                "termination_condition": "Cover a longitudinal distance of 10 meters.",
+                "reason": "The car starts moving forward after being parked."
+            },
+            {
+                "action": "Change from lane 1 to lane 2.",
+                "termination_condition": "Complete the lane change maneuver.",
+                "reason": "The car aims to change to the adjacent lane."
+            },
+            {
+                "action": "Move straight ahead at a speed not exceeding 5 m/s.",
+                "termination_condition": "Continue until the end of the scene.",
+                "reason": "The car continues moving forward after changing lanes."
+            }
+        ]
+    },
+    "bus": {
+        "type": "agent",
+        "model": "bus",
+        "init_state": [2, 60, 0],
+        "steps": [
+            {
+                "action": "Move straight ahead at a speed not exceeding 5 m/s.",
+                "termination_condition": "Cover a longitudinal distance of 10 meters.",
+                "reason": "The bus starts moving forward to prepare for lane change."
+            },
+            {
+                "action": "Change from lane 2 to lane 1.",
+                "termination_condition": "Complete the lane change maneuver.",
+                "reason": "The bus changes lanes to park at the bus station."
+            },
+            {
+                "action": "Move straight ahead at a speed not exceeding 5 m/s.",
+                "termination_condition": "Continue until the end of the scene.",
+                "reason": "The bus continues moving forward after changing lanes."
+            }
+        ]
+    }
+}

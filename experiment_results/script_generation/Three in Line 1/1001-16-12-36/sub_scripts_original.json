@@ -1,0 +1,53 @@
+{
+    "VUT": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [
+            2,
+            100,
+            10
+        ]
+    },
+    "Car1": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            2,
+            120,
+            10
+        ],
+        "steps": [
+            {
+                "action": "Decelerate to 5 m/s",
+                "termination_condition": "Reach speed of 5 m/s",
+                "reason": "To simulate a slowing down scenario"
+            },
+            {
+                "action": "Move straight at 5 m/s",
+                "termination_condition": "End of the scene",
+                "reason": "Continue moving straight after deceleration"
+            }
+        ]
+    },
+    "Car2": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            2,
+            110,
+            10
+        ],
+        "steps": [
+            {
+                "action": "Change from lane 2 to lane 3",
+                "termination_condition": "Complete lane change to the right",
+                "reason": "Avoid collision with the decelerating car in front"
+            },
+            {
+                "action": "Move straight at 10 m/s",
+                "termination_condition": "End of the scene",
+                "reason": "Continue moving straight after lane change"
+            }
+        ]
+    }
+}

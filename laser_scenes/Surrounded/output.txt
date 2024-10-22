@@ -1,0 +1,95 @@
+### Input Interpretation:
+1. The criminal's car is driving on the highway.
+2. Four police cars are approaching from behind and intend to surround the criminal's car from all sides.
+3. The scenario happens on a 4-lane road with an intersection and a crosswalk.
+
+### Stage Breakdown:
+1. The criminal's car is traveling along the highway in one of the lanes.
+2. Four police cars start from behind the criminal's car.
+3. Each police car maneuvers to position itself around the criminal's car, with one in front, one behind, and one on each side.
+4. The police cars maintain their positions around the criminal's car until the end of the scene.
+
+### Script Generation:
+```json
+{
+    "VUT": {
+        "type": "VUT",
+        "model": "car",
+        "init_state": [2, 100, 10]
+    },
+    "police_car_1": {
+        "type": "agent",
+        "model": "police car",
+        "init_state": [2, 110, 12],
+        "steps": [
+            {
+                "action": "Move straight ahead at a speed not exceeding 12 m/s",
+                "termination_condition": "Close the distance to the criminal's car, and adjust your longitudinal position to approximately +/- 2 meters",
+                "reason": "To position itself behind the criminal's car"
+            },
+            {
+                "action": "Move forward with speed of 10 m/s",
+                "termination_condition": "Maintain position behind the criminal's car",
+                "reason": "To maintain the surrounding formation"
+            }
+        ]
+    },
+    "police_car_2": {
+        "type": "agent",
+        "model": "police car",
+        "init_state": [2, 120, 14],
+        "steps": [
+            {
+                "action": "Move straight ahead at a speed not exceeding 14 m/s",
+                "termination_condition": "Pass the criminal's car and maintain a longitudinal position approximately 2 meters ahead",
+                "reason": "To position itself in front of the criminal's car"
+            },
+            {
+                "action": "Move forward with speed of 10 m/s",
+                "termination_condition": "Maintain position in front of the criminal's car",
+                "reason": "To maintain the surrounding formation"
+            }
+        ]
+    },
+    "police_car_3": {
+        "type": "agent",
+        "model": "police car",
+        "init_state": [1, 115, 12],
+        "steps": [
+            {
+                "action": "Move straight ahead at a speed not exceeding 12 m/s",
+                "termination_condition": "Close the distance to the criminal's car, and adjust your lateral position to approximately +/- 2 meters",
+                "reason": "To position itself to the left of the criminal's car"
+            },
+            {
+                "action": "Move forward with speed of 10 m/s",
+                "termination_condition": "Maintain position to the left of the criminal's car",
+                "reason": "To maintain the surrounding formation"
+            }
+        ]
+    },
+    "police_car_4": {
+        "type": "agent",
+        "model": "police car",
+        "init_state": [3, 115, 12],
+        "steps": [
+            {
+                "action": "Move straight ahead at a speed not exceeding 12 m/s",
+                "termination_condition": "Close the distance to the criminal's car, and adjust your lateral position to approximately +/- 2 meters",
+                "reason": "To position itself to the right of the criminal's car"
+            },
+            {
+                "action": "Move forward with speed of 10 m/s",
+                "termination_condition": "Maintain position to the right of the criminal's car",
+                "reason": "To maintain the surrounding formation"
+            }
+        ]
+    }
+}
+```
+### Notes:
+- The criminal's car (VUT) starts in lane 2, 100 meters from the finish line, moving at 10 m/s.
+- Police car 1 starts in lane 2, 110 meters from the finish line, moving at 12 m/s, and positions itself behind the criminal's car.
+- Police car 2 starts in lane 2, 120 meters from the finish line, moving at 14 m/s, and positions itself in front of the criminal's car.
+- Police car 3 starts in lane 1, 115 meters from the finish line, moving at 12 m/s, and positions itself to the left of the criminal's car.
+- Police car 4 starts in lane 3, 115 meters from the finish line, moving at 12 m/s, and positions itself to the right of the criminal's car.

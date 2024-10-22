@@ -1,0 +1,3 @@
+Scene description: 
+On a three-lane highway, there is a truck to the left of the ego vehicle, and a car in the right front, traveling at the same speed as the ego vehicle, begins to change lanes to the left. Since the car does not accelerate during the lane change, the longitudinal distance decreases, resulting in a collision with the ego vehicle during the lane change.
+Road environment description: 3 lane highway, lane 1 for left most lane, lane 3 for right most lane, road length 70

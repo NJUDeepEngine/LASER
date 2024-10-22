@@ -1,0 +1,1 @@
+5.917679725214839, Actor(id=332, type=vehicle.volkswagen.t2_2021), Actor(id=330, type=vehicle.tesla.model3)

@@ -1,0 +1,84 @@
+### Input Interpretation:
+
+1. **Stage 1:** The car in the left lane (lane 1) is attempting to overtake. 
+    - The overtaking car starts from lane 1, moves ahead of the ego vehicle, and then changes to lane 2.
+    - This action limits the space in front of the ego vehicle.
+
+2. **Stage 2:** The ego vehicle is forced to decelerate due to the overtaking maneuver.
+    - The ego vehicle starts in lane 2, notices the car overtaking from lane 1, and reduces its speed to avoid collision.
+
+3. **Stage 3:** A car behind the ego vehicle is speeding up.
+    - The car behind starts in lane 2, accelerates to pressure the ego vehicle to increase its speed.
+
+4. **Stage 4:** The ego vehicle is under pressure to accelerate due to the car behind.
+    - The ego vehicle needs to balance its speed due to the car in front and the car behind.
+
+### Script Generation:
+
+```json
+{
+    "VUT": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [2, 50, 10]
+    },
+    "Overtaking_Car": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [1, 55, 12],
+        "steps": [
+            {
+                "action": "Move straight ahead at a speed not exceeding 12 m/s",
+                "termination_condition": "Achieve a longitudinal distance of 5 meters ahead of VUT",
+                "reason": "To overtake the VUT and create space for lane change"
+            },
+            {
+                "action": "Change from lane 1 to lane 2",
+                "termination_condition": "Completely in lane 2",
+                "reason": "Complete the overtaking maneuver"
+            },
+            {
+                "action": "Move straight ahead at a speed not exceeding 12 m/s",
+                "termination_condition": "Reach the end of the scene",
+                "reason": "Continue driving"
+            }
+        ]
+    },
+    "Car_Behind": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [2, 45, 10],
+        "steps": [
+            {
+                "action": "Accelerate to a speed not exceeding 15 m/s",
+                "termination_condition": "Close the distance to the VUT to approximately 2 meters",
+                "reason": "To pressure the VUT to increase its speed"
+            },
+            {
+                "action": "Move straight ahead at a speed not exceeding 15 m/s",
+                "termination_condition": "Reach the end of the scene",
+                "reason": "Continue driving"
+            }
+        ]
+    }
+}
+```
+
+### Explanation:
+
+1. **Overtaking Car:**
+    - **Initial State:** In lane 1, 55 meters from the finish line, moving at 12 m/s.
+    - **Steps:**
+        1. Move straight ahead at 12 m/s until it is 5 meters ahead of the VUT.
+        2. Change from lane 1 to lane 2, completing the overtaking maneuver.
+        3. Continue moving straight at 12 m/s until the end of the scene.
+
+2. **Car Behind:**
+    - **Initial State:** In lane 2, 45 meters from the finish line, moving at 10 m/s.
+    - **Steps:**
+        1. Accelerate to a speed not exceeding 15 m/s until it is approximately 2 meters behind the VUT.
+        2. Continue moving straight at 15 m/s until the end of the scene.
+
+3. **Vehicle Under Test (VUT):**
+    - **Initial State:** In lane 2, 50 meters from the finish line, moving at 10 m/s.
+    - Forced to decelerate due to the overtaking car and pressured to accelerate by the car behind.

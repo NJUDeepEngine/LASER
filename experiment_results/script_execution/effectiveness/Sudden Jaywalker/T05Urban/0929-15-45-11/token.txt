@@ -1,0 +1,8 @@
+{
+    "SW": null,
+    "pedestrian": {
+        "input_tokens": 4668,
+        "output_tokens": 1075,
+        "total_tokens": 5743
+    }
+}

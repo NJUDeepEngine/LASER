@@ -1,0 +1,83 @@
+{
+    "crime_car": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [2, 50, 10]
+    },
+    "police_car_1": {
+        "type": "dummy",
+        "model": "police car",
+        "init_state": [2, 58, 10]
+    },
+    "police_car_2": {
+        "type": "agent",
+        "model": "police car",
+        "init_state": [3, 55, 15],
+        "steps": [
+            {
+                "action": "Move straight ahead at a speed not exceeding 15 m/s",
+                "termination_condition": "Pass the crime_car more than 3 m.",
+                "reason": "To position itself in front of the crime_car"
+            },
+            {
+                "action": "Change lanes from lane 3 to lane 2",
+                "termination_condition": "You are not in lane 3.",
+                "reason": "To position itself in front of the crime_car"
+            },
+            {
+                "action": "Slow down to 10 m/s",
+                "termination_condition": "Your speed slow down to 10 m/s.",
+                "reason": "To maintain the surrounding formation"
+            },
+            {
+                "action": "Move forward with speed of 10 m/s",
+                "termination_condition": "Maintain position in front of the crime_car",
+                "reason": "To maintain the surrounding formation"
+            }
+        ]
+    },
+    "police_car_3": {
+        "type": "agent",
+        "model": "police car",
+        "init_state": [1, 65, 15],
+        "steps": [
+            {
+                "action": "Move straight ahead at a speed not exceeding 15 m/s",
+                "termination_condition": "Your longitudinal distance to the crime_car is less than 3 m",
+                "reason": "To position itself to the left of the crime_car"
+            },
+            {
+                "action": "Slow down to 10 m/s",
+                "termination_condition": "Your speed slow down to 10 m/s.",
+                "reason": "To maintain the surrounding formation"
+            },
+            {
+                "action": "Move forward with speed of 10 m/s",
+                "termination_condition": "Maintain position to the left of the crime_car",
+                "reason": "To maintain the surrounding formation"
+            }
+        ]
+    },
+    "police_car_4": {
+        "type": "agent",
+        "model": "police car",
+        "init_state": [3, 65, 15],
+        "steps": [
+            {
+                "action": "Move straight ahead at a speed not exceeding 15 m/s",
+                "termination_condition": "Your longitudinal distance to the crime_car is less than 3 m",
+                "reason": "To position itself to the right of the crime_car"
+            },
+            {
+                "action": "Slow down to 10 m/s",
+                "termination_condition": "Your speed slow down to 10 m/s.",
+                "reason": "To maintain the surrounding formation"
+            },
+            {
+                "action": "Move forward with speed of 10 m/s",
+                "termination_condition": "Maintain position to the right of the crime_car",
+                "reason": "To maintain the surrounding formation"
+            }
+        ]
+    }
+}

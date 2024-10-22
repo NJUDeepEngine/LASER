@@ -1,0 +1,36 @@
+{
+    "car1": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [3, 40, 10],
+        "steps": [
+            {
+                "action": "Change from lane 3 to lane 2 at a speed not exceeding 10 m/s",
+                "termination_condition": "car1 is not in lane 3",
+                "reason": "To move towards lane 2"
+            },
+            {
+                "action": "Move straight ahead at a speed not exceeding 10 m/s",
+                "termination_condition": "Collide with the VUT",
+                "reason": "Both cars moved simultaneously"
+            }
+        ]
+    },
+    "car2": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [1, 37, 10],
+        "steps": [
+            {
+                "action": "Change from lane 1 to lane 2 at a speed not exceeding 10 m/s",
+                "termination_condition": "car2 is not in lane 1",
+                "reason": "To move towards lane 2"
+            },
+            {
+                "action": "Move straight ahead at a speed not exceeding 10 m/s",
+                "termination_condition": "Collide with the VUT",
+                "reason": "Both cars moved simultaneously"
+            }
+        ]
+    }
+}

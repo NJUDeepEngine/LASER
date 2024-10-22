@@ -1,0 +1,95 @@
+{
+    "VUT": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [
+            1,
+            100,
+            0
+        ]
+    },
+    "Car1": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            1,
+            100,
+            0
+        ],
+        "steps": [
+            {
+                "action": "stop",
+                "termination_condition": "remain stopped",
+                "reason": "Car1 is malfunctioning and cannot move."
+            }
+        ]
+    },
+    "Car2": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            2,
+            105,
+            0
+        ],
+        "steps": [
+            {
+                "action": "stop",
+                "termination_condition": "remain stopped",
+                "reason": "Car2 is malfunctioning and cannot move."
+            }
+        ]
+    },
+    "Car3": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            1,
+            150,
+            10
+        ],
+        "steps": [
+            {
+                "action": "slow down to 5 m/s",
+                "termination_condition": "approach Car1 within 20 meters",
+                "reason": "Car3 must slow down to safely assess the situation ahead."
+            },
+            {
+                "action": "change from lane 1 to lane 2",
+                "termination_condition": "complete lane change",
+                "reason": "Car3 needs to change lanes to avoid the stopped Car1."
+            },
+            {
+                "action": "move forward at 10 m/s",
+                "termination_condition": "end of scenario",
+                "reason": "Car3 continues moving forward after changing lanes."
+            }
+        ]
+    },
+    "Car4": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            2,
+            155,
+            10
+        ],
+        "steps": [
+            {
+                "action": "slow down to 5 m/s",
+                "termination_condition": "approach Car2 within 20 meters",
+                "reason": "Car4 must slow down to safely assess the situation ahead."
+            },
+            {
+                "action": "change from lane 2 to lane 3",
+                "termination_condition": "complete lane change",
+                "reason": "Car4 needs to change lanes to avoid the stopped Car2."
+            },
+            {
+                "action": "move forward at 10 m/s",
+                "termination_condition": "end of scenario",
+                "reason": "Car4 continues moving forward after changing lanes."
+            }
+        ]
+    }
+}

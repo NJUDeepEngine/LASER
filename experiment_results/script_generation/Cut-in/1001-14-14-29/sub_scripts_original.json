@@ -1,0 +1,52 @@
+{
+    "VUT": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [
+            1,
+            100,
+            10
+        ]
+    },
+    "Car1": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            1,
+            150,
+            12
+        ],
+        "steps": [
+            {
+                "action": "Move straight ahead at a speed not exceeding 12 m/s.",
+                "termination_condition": "Close the longitudinal distance to the VUT to approximately 10 meters.",
+                "reason": "Prepare for lane change to overtake the VUT."
+            },
+            {
+                "action": "Change from lane 1 to lane 2.",
+                "termination_condition": "Complete lane change to lane 2.",
+                "reason": "Initiate overtaking maneuver."
+            },
+            {
+                "action": "Accelerate to a speed not exceeding 15 m/s.",
+                "termination_condition": "Longitudinal position more than 5 meters ahead of the VUT.",
+                "reason": "Pass the VUT."
+            },
+            {
+                "action": "Change from lane 2 to lane 1.",
+                "termination_condition": "Complete lane change to lane 1 in front of the VUT.",
+                "reason": "Return to the original lane after overtaking."
+            },
+            {
+                "action": "Slow down to a speed not exceeding 8 m/s.",
+                "termination_condition": "Speed reduces to 8 m/s.",
+                "reason": "Reduce speed after overtaking."
+            },
+            {
+                "action": "Move forward with speed of 8 m/s.",
+                "termination_condition": "End of the scene.",
+                "reason": "Continue moving forward."
+            }
+        ]
+    }
+}

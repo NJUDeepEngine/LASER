@@ -1,0 +1,6 @@
+
+            {
+                "action": "Move straight ahead at a speed not exceeding 5 m/s.",
+                "termination_condition": "The bus reaches 110 meters.",
+                "reason": "The bus travels towards the bus station."
+            },

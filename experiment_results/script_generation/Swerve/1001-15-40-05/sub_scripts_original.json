@@ -1,0 +1,53 @@
+{
+    "VUT": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [
+            2,
+            100,
+            10
+        ]
+    },
+    "FrontCar": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            2,
+            80,
+            10
+        ],
+        "steps": [
+            {
+                "action": "Decelerate to 0 m/s",
+                "termination_condition": "Speed reaches 0 m/s",
+                "reason": "Simulate sudden deceleration"
+            },
+            {
+                "action": "Move forward at 0 m/s",
+                "termination_condition": "End of scene",
+                "reason": "Remain stopped after deceleration"
+            }
+        ]
+    },
+    "RearCar": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            2,
+            90,
+            10
+        ],
+        "steps": [
+            {
+                "action": "Swerve to the right (lane 3) at 10 m/s",
+                "termination_condition": "Lane change to lane 3",
+                "reason": "Avoid collision with the decelerating front car"
+            },
+            {
+                "action": "Move forward at 10 m/s",
+                "termination_condition": "End of scene",
+                "reason": "Continue moving after swerving"
+            }
+        ]
+    }
+}

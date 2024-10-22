@@ -1,0 +1,3 @@
+Scene description: 
+A car parked in front of the bus station started, changed lanes, and collided with the bus that was changing lanes to park.
+Road environment description: 2 lane way, lane 1 for left most lane, lane 2 for right most lane, road length 70

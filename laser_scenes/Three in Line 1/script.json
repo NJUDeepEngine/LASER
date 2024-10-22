@@ -1,0 +1,41 @@
+{
+    "VUT": {
+        "type": "VUT",
+        "model": "car",
+        "init_state": [1, 30, 8]
+    },
+    "Car 1": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [1, 10, 5],
+        "steps": [
+            {
+                "action": "slow down",
+                "termination_condition": "speed reduces to 0 m/s",
+                "reason": "approaching the intersection and the crosswalk"
+            },
+            {
+                "action": "Maintain 0 m/s speed lane 1", 
+                "termination_condition": "Hold for the next 10 seconds", 
+                "reason": ""
+            }
+        ]
+    },
+    "Car 2": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [1, 17, 5],
+        "steps": [
+            {
+                "action": "change from lane 1 to lane 2",
+                "termination_condition": "The car is not in lane 1.",
+                "reason": "To change lanes safely while maintaining current speed"
+            },
+            {
+                "action": "Maintain 5 m/s speed lane 2", 
+                "termination_condition": "Hold for the next 10 seconds", 
+                "reason": ""
+            }
+        ]
+    }
+}

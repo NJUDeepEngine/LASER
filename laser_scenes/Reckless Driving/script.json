@@ -1,0 +1,59 @@
+{
+    "Vehicle1": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [2, 90, 15],
+        "steps": [
+            {
+                "action": "change from lane 2 to lane 1",
+                "termination_condition": "Vehicle1 is not in lane 2",
+                "reason": "Prepare to overtake the vehicle in front"
+            },
+            {
+                "action": "move forward",
+                "termination_condition": "Longitudinal position is more than 5 m ahead of Vehicle2",
+                "reason": "Complete the overtaking maneuver"
+            },
+            {
+                "action": "change from lane 1 to lane 2",
+                "termination_condition": "Vehicle1 is not in lane 1",
+                "reason": "Return to the original lane"
+            },
+            {
+                "action": "move straight",
+                "termination_condition": "The distance to Vehicle3 is less than 15 m.",
+                "reason": "Return to the original lane"
+            },
+            {
+                "action": "change from lane 2 to lane 3",
+                "termination_condition": "Vehicle1 is not in lane 2",
+                "reason": "Prepare to overtake the vehicle in front"
+            },
+            {
+                "action": "move forward",
+                "termination_condition": "Longitudinal position is more than 5 m ahead of Vehicle3",
+                "reason": "Complete the overtaking maneuver"
+            },
+            {
+                "action": "change from lane 3 to lane 2",
+                "termination_condition": "Vehicle1 is not in lane 3",
+                "reason": "Return to the original lane"
+            },
+            {
+                "action": "move straight",
+                "termination_condition": "End of the scene",
+                "reason": "Continue driving normally"
+            }
+        ]
+    },
+    "Vehicle2": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [2, 65, 10]
+    },
+    "Vehicle3": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [2, 10, 10]
+    }
+}

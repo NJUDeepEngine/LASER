@@ -1,0 +1,63 @@
+{
+    "ambulance": {
+        "type": "dummy",
+        "model": "ambulance",
+        "init_state": [
+            2,
+            100,
+            15
+        ]
+    },
+    "vehicle_1": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            2,
+            50,
+            10
+        ],
+        "steps": [
+            {
+                "action": "Move straight ahead at a speed not exceeding 10 m/s.",
+                "termination_condition": "The distance between the car and the ambulance is less than 20 meters.",
+                "reason": "Ensure the car is in front of the ambulance until it needs to make way."
+            },
+            {
+                "action": "Change from lane 2 to lane 1.",
+                "termination_condition": "The car has fully moved to lane 1.",
+                "reason": "Make way for the ambulance by moving to the left lane."
+            },
+            {
+                "action": "Move straight ahead at a speed not exceeding 10 m/s.",
+                "termination_condition": "End of scene.",
+                "reason": "Continue driving after making way for the ambulance."
+            }
+        ]
+    },
+    "vehicle_2": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            2,
+            70,
+            10
+        ],
+        "steps": [
+            {
+                "action": "Move straight ahead at a speed not exceeding 10 m/s.",
+                "termination_condition": "The distance between the car and the ambulance is less than 20 meters.",
+                "reason": "Ensure the car is in front of the ambulance until it needs to make way."
+            },
+            {
+                "action": "Change from lane 2 to lane 3.",
+                "termination_condition": "The car has fully moved to lane 3.",
+                "reason": "Make way for the ambulance by moving to the right lane."
+            },
+            {
+                "action": "Move straight ahead at a speed not exceeding 10 m/s.",
+                "termination_condition": "End of scene.",
+                "reason": "Continue driving after making way for the ambulance."
+            }
+        ]
+    }
+}

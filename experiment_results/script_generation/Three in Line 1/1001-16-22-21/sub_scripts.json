@@ -1,0 +1,53 @@
+{
+    "VUT": {
+        "type": "VUT",
+        "model": "car",
+        "init_state": [
+            2,
+            30,
+            8
+        ]
+    },
+    "Car1": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            2,
+            10,
+            6
+        ],
+        "steps": [
+            {
+                "action": "slow down to 0 m/s",
+                "termination_condition": "speed reaches 0 m/s",
+                "reason": "Car 1 begins to slow down, initiating the chain of events."
+            },
+            {
+                "action": "move straight ahead at 0 m/s",
+                "termination_condition": "end of scene",
+                "reason": "Car 1 continues to move forward at a reduced speed."
+            }
+        ]
+    },
+    "Car2": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            2,
+            17,
+            6
+        ],
+        "steps": [
+            {
+                "action": "change from lane 2 to lane 3",
+                "termination_condition": "position in lane 3",
+                "reason": "Car 2 changes lanes to avoid collision with Car 1."
+            },
+            {
+                "action": "move straight ahead at 10 m/s",
+                "termination_condition": "end of scene",
+                "reason": "Car 2 continues to move forward in the new lane."
+            }
+        ]
+    }
+}

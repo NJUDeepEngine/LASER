@@ -1,0 +1,63 @@
+{
+    "VUT": {
+        "type": "dummy",
+        "model": "ambulance",
+        "init_state": [
+            2,
+            80,
+            15
+        ]
+    },
+    "vehicle1": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            2,
+            40,
+            10
+        ],
+        "steps": [
+            {
+                "action": "Move straight ahead at a speed not exceeding 10 m/s.",
+                "termination_condition": "The distance between the ambulance and vehicle1 is less than 20 meters.",
+                "reason": "Maintain initial position until the ambulance approaches."
+            },
+            {
+                "action": "Change from lane 2 to lane 1.",
+                "termination_condition": "The vehicle1 is fully in lane 1.",
+                "reason": "Make way for the approaching ambulance."
+            },
+            {
+                "action": "Move straight ahead at a speed not exceeding 10 m/s.",
+                "termination_condition": "End of the scene.",
+                "reason": "Continue driving after making way for the ambulance."
+            }
+        ]
+    },
+    "vehicle2": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            2,
+            60,
+            10
+        ],
+        "steps": [
+            {
+                "action": "Move straight ahead at a speed not exceeding 10 m/s.",
+                "termination_condition": "The distance between the ambulance and vehicle2 is less than 20 meters.",
+                "reason": "Maintain initial position until the ambulance approaches."
+            },
+            {
+                "action": "Change from lane 2 to lane 3.",
+                "termination_condition": "The vehicle2 is fully in lane 3.",
+                "reason": "Make way for the approaching ambulance."
+            },
+            {
+                "action": "Move straight ahead at a speed not exceeding 10 m/s.",
+                "termination_condition": "End of the scene.",
+                "reason": "Continue driving after making way for the ambulance."
+            }
+        ]
+    }
+}

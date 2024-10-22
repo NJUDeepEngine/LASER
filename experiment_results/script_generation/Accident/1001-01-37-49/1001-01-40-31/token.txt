@@ -1,0 +1,13 @@
+{
+    "SW": null,
+    "CarC": {
+        "input_tokens": 2755,
+        "output_tokens": 630,
+        "total_tokens": 3385
+    },
+    "CarD": {
+        "input_tokens": 6451,
+        "output_tokens": 1476,
+        "total_tokens": 7927
+    }
+}

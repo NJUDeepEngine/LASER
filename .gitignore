@@ -1,0 +1,6 @@
+__pycache__/
+.vscode/
+!interfuser/timm/data
+leaderboard/team_code/interfuser.pth.tar
+se_records/*
+*.log

@@ -1,0 +1,4 @@
+Scenario Description:
+Two cars stopped in place due to a malfunction, and the other two cars in the same lane slowed down and changed lanes to give way.
+Road environment description:
+4 lane road.

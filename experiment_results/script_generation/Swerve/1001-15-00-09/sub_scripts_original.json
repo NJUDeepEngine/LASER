@@ -1,0 +1,53 @@
+{
+    "VUT": {
+        "type": "dummy",
+        "model": "car",
+        "init_state": [
+            2,
+            100,
+            10
+        ]
+    },
+    "Car_A": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            2,
+            40,
+            10
+        ],
+        "steps": [
+            {
+                "action": "Decelerate to a speed of 5 m/s",
+                "termination_condition": "Speed reduces to 5 m/s",
+                "reason": "Sudden deceleration to create a hazard"
+            },
+            {
+                "action": "Move forward at 5 m/s",
+                "termination_condition": "End of the scene",
+                "reason": "Continue driving at reduced speed"
+            }
+        ]
+    },
+    "Car_B": {
+        "type": "agent",
+        "model": "car",
+        "init_state": [
+            2,
+            70,
+            10
+        ],
+        "steps": [
+            {
+                "action": "Change from lane 2 to lane 3",
+                "termination_condition": "Complete lane change to lane 3",
+                "reason": "Swerving to the right to avoid collision with Car A"
+            },
+            {
+                "action": "Move forward at 10 m/s",
+                "termination_condition": "End of the scene",
+                "reason": "Continue driving in the new lane"
+            }
+        ]
+    }
+}
