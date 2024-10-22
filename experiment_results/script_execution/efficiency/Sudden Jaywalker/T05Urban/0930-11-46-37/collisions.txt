@@ -1,1 +1,0 @@
-5.422213222307619, Actor(id=161, type=vehicle.tesla.model3), Actor(id=171, type=walker.pedestrian.0031)

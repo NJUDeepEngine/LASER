@@ -1,1 +1,0 @@
-12.692382066510618, Actor(id=143, type=vehicle.ford.ambulance), Actor(id=145, type=vehicle.tesla.model3)

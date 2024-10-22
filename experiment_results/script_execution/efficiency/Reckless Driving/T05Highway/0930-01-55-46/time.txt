@@ -1,4 +1,0 @@
-{
-    "simulation_time": 14.95000022277236,
-    "real_world_time": 79.5452971458435
-}

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <title>LASER</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <!-- <script defer src="static/js/fontawesome.all.min.js"></script> -->
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+  <script src="https://kit.fontawesome.com/dcd6d05807.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    
+    <section class="hero">
+        <div class="hero-body">
+          <div class="container is-max-desktop">
+            <div class="columns is-centered">
+              <div class="column has-text-centered">
+                <h1 class="title is-1 publication-title">LASER: Script Execution by Autonomous
+                    Agents for On-demand Traffic Simulation</h1>
+    
+                    <div class="is-size-5 publication-authors">
+                        <!-- Paper authors -->
+                        <span class="author-block">
+                            Hao Gao<sup>1</sup>,
+                        </span>
+                        <span class="author-block">
+                            Jingyue Wang<sup>1</sup>,
+                        </span>
+                        <span class="author-block">
+                            Wenyang Fang<sup>1</sup>,
+                        </span>
+                        <span class="author-block">
+                            Jingwei Xu<sup>1</sup>,
+                        </span>
+                        <span class="author-block">
+                            Yunpeng Huang<sup>1</sup>,
+                        </span>
+                        <span class="author-block">
+                            Taolue Chen<sup>2</sup>,
+                        </span><br>
+                        <span class="author-block">
+                            Xiaoxing Ma<sup>1</sup>,
+                        </span>
+                    </div>
+
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block">
+                            <sup>1</sup> State Key Lab of Novel Software Technology, Nanjing University, China<br>
+                            <sup>2</sup> School of Computing and Mathematical Sciences, Birkbeck, University of London, UK
+                        </span>
+                      </div>
+
+                <div class="column has-text-centered">
+                  <div class="publication-links">
+    
+                    <!-- Github link -->
+                    <span class="link-block">
+                      <a href="https://github.com/NJUDeepEngine/LASER" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fab fa-github"></i>
+                        </span>
+                        <span>Code</span>
+                      </a>
+                    </span>
+
+                    <!-- ArXiv abstract Link -->
+                    <span class="link-block">
+                        <a href="https://arxiv.org/abs/2410.16197" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                            <i class="ai ai-arxiv"></i>
+                        </span>
+                        <span>arXiv</span>
+                        </a> 
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <!-- Paper abstract -->
+      <section class="section hero is-light">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+              <h2 class="title is-3">Abstract</h2>
+              <div class="content has-text-justified">
+                <p>
+                  <b>
+                    Autonomous Driving Systems (ADS) require diverse and safety-critical traffic
+                    scenarios for effective training and testing, but the existing data generation methods struggle to provide flexibility and scalability. We propose LASER, a novel
+                    framework that leverage large language models (LLMs) to conduct traffic simulations based on natural language inputs. The framework operates in two stages: it
+                    first generates scripts from user-provided descriptions and then executes them using autonomous agents in real time. Validated in the CARLA simulator, LASER
+                    successfully generates complex, on-demand driving scenarios, significantly improving ADS training and testing data generation.
+
+                  </b>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End paper abstract -->
+    
+    
+      <!-- Framework. -->   
+      <section class="section" id="Framework">
+        <div class="container is-max-desktop">
+          <h2 class="title">Framework</h2>
+          <div class="hero-body">
+            <center>
+                <img src="static/images/framework.png" width="80%"/>
+            </center>
+            <h2 class="subtitle has-text-justified" style="padding-top: 1rem;" style="width: 80%;">
+                To achieve on-demand and interactive traffic simulation, we propose a framework called LASER.<br/>
+                LASER consists of two stages, implemented by two modules respectively, i.e., <b>script writer</b> and <b>LASER-Agent</b>. Unlike the previous learning based methods that conduct generation and simulation simultaneously, our LASER framework first
+                generates scripts that define logic-chained behaviors (LCB) with natural language instructions from
+                the user requirements. It then executes the script by the real-time cooperation of LASER-Agents.
+            </h2>
+          </div>
+        </div>
+      </section>
+    
+  <!--show video here-->
+  <section class="section" id="LiveDemo">
+    <div class="container is-max-desktop">
+      <h2 class="title">Result:</h2>
+      <ol>
+        <li>Select the Scene, and you will see the corresponding script.</li>
+        <li>Click Run, and you will see the playback of the actual simulated recorded video.</li>
+      </ol>
+      <div class="row g-3">
+        <div class="col">
+          <div class="input-group mb-3">
+            <button type="button" class="btn btn-outline-secondary" disabled>Scene</button>
+            <input id="currenScene" readonly type="text" class="form-control" value="Accident"/>
+            <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="visually-hidden">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" id="dropdownList">
+              <!-- Add your scene here -->
+              <li class="dropdown-item">Accident</li>
+              <li class="dropdown-item">Ambulance</li>
+              <li class="dropdown-item">Bus</li>
+              <li class="dropdown-item">Caught in Pincer</li>
+              <li class="dropdown-item">Cut-in</li>
+              <li class="dropdown-item">Failed at Start</li>
+              <li class="dropdown-item">Meet in Mind 1</li>
+              <li class="dropdown-item">Meet in Mind 2</li>
+              <li class="dropdown-item">Merge Alternately</li>
+              <li class="dropdown-item">Newbie Lane Change 1</li>
+              <li class="dropdown-item">Newbie Lane Change 2</li>
+              <li class="dropdown-item">Reckless Driving</li>
+              <li class="dropdown-item">Sudden Jaywalker</li>
+              <li class="dropdown-item">Surrounded</li>
+              <li class="dropdown-item">Swerve</li>
+              <li class="dropdown-item">Three in Line 1</li>
+              <li class="dropdown-item">Three in Line 2</li>
+              
+            </ul>
+          </div>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-outline-secondary w-100" onclick="viewScene()">Run</button>
+        </div>
+      </div>
+      <div class="row g-3" style="margin-top: 1rem;">
+        <div class="col">
+          <p class="fw-bold">Scene Script</p>
+          <pre id="showSceneScript" style="height: 500px; width:630px; overflow-y: auto; background-color: #f5f5f5;"></pre>
+        </div>
+        <div class="col has-text-centered">
+          <p class="fw-bold">Result Video</p>
+          <div id="showResult" style="height: 360px; width: 640px;">
+            <video poster="" id="tree" controls autoplay muted loop height="100%" width="100%">
+                <!-- Your video here -->
+                <source src="static/videos/Accident.mp4" type="video/mp4"/>
+            </video>
+          </div>
+          This is the playback of the actual simulated recorded video
+        </div>
+      </div>
+    </div>
+  <!-- </section> -->
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+
+            <p style="text-align: center;"><i class="fa-solid fa-heart fa-beat-fade" style="color: #ff8787;"></i>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                target="_blank">Academic Project Page Template</a> <i class="fa-solid fa-heart fa-beat-fade"
+                style="color: #ff8787;"></i>
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+<script>
+  function viewScene() {
+    var currentScene = $('#currenScene').val();
+    var TDPath = 'static/videos/' + currentScene + '.mp4';
+    $('#tree').attr('src', TDPath);
+  }
+  function getJson(url){
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+            // 将 JSON 数据格式化为字符串并插入到 <pre> 标签中
+            document.getElementById('showSceneScript').textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(error => {
+            console.error('Error fetching the JSON file:', error);
+            document.getElementById('showSceneScript').textContent = '无法加载 JSON 文件。';
+        })
+  }
+  $(document).ready(function () {
+    $("#dropdownList li").click(function () {
+      var scene = $(this).text();
+      $("#currenScene").val(scene);
+      getJson("static/text/scenes/"+scene+"/script.json")
+    });
+    getJson("static/text/scenes/Accident/script.json");
+  });
+
+</script>
+</html>

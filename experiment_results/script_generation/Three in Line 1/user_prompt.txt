@@ -1,3 +1,0 @@
-Scene description: 
-There are two cars in front of the VUT (Vehicle Under Test). The car at the very front slows down, and the second car, to avoid a collision, changes lanes to the right.
-Road environment description: 4 lane road.

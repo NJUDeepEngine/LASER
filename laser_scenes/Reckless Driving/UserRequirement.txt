@@ -1,7 +1,0 @@
-Scenario Description:
-On a highway with more than four vehicles, the VUT (Vehicle Under Test) is driving normally and notices a particular vehicle repeatedly overtaking other cars.
-Road environment description:
-4 lane road with a cross walk near the intersection with the following layout:
-xxx(intersection)
-|||(crosswalk, 0 meters away)
-123(1 and 2 for lane driving into the junction, 3 for sidewalk, x meters away)

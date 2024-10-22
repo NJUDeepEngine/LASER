@@ -1,3 +1,0 @@
-Scene description: 
-There are two cars ahead of the VUT (Vehicle Under Test) on the left side. The front car suddenly decelerates, and the rear car swerves to the right to avoid a collision.
-Road environment description: 3 lane highway, road length 70

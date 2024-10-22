@@ -1,8 +1,0 @@
-{
-    "SW": null,
-    "bus": {
-        "input_tokens": 17309,
-        "output_tokens": 4693,
-        "total_tokens": 22002
-    }
-}

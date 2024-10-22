@@ -1,1 +1,0 @@
-14.322191994637251, Actor(id=4494, type=vehicle.tesla.model3), Actor(id=4496, type=vehicle.tesla.model3)

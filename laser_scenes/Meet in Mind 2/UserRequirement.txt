@@ -1,3 +1,0 @@
-Scenario Description:
-On the highway, two cars simultaneously overtake a car in the middle.
-Road environment description: 4 lane road.

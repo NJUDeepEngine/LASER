@@ -1,7 +1,0 @@
-Scenario Description:
-The VUT stopped in place due to a malfunction, and the other vehicles in the same lane slowed down and changed lanes to give way.
-Road environment description:
-4 lane road with a cross walk near the intersection with the following layout:
-xxx(intersection)
-|||(crosswalk, 0 meters away)
-123(1 and 2 for lane driving into the junction, 3 for sidewalk, x meters away)

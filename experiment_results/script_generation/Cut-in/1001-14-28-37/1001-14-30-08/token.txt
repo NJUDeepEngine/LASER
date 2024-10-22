@@ -1,8 +1,0 @@
-{
-    "SW": null,
-    "overtaking_car": {
-        "input_tokens": 6716,
-        "output_tokens": 1919,
-        "total_tokens": 8635
-    }
-}

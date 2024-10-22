@@ -1,3 +1,0 @@
-Scene description: 
-On a two-lane highway, a car to the left of the ego vehicle is attempting to overtake, limiting the space in front and forcing the ego vehicle to decelerate. Meanwhile, a car behind is speeding up, pressuring the ego vehicle to accelerate.
-Road environment description: 2 lane way, lane 1 for left most lane, lane 2 for right most lane, road length 70
